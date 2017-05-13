@@ -7,26 +7,38 @@ using System.Threading.Tasks;
 
 namespace CitySearch
 {
-    class CityFinder : APIKey
+    public class CityFinder : ICityFinder
     {
-        private APIKey apiKey = new APIKey();
+        private APIKey apiKey;
         private const string baseURL = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=";
         private string types = "&types=(cities)";
+
+        public CityFinder(APIKey key)
+        {
+            this.apiKey = key;
+        }
         public ICityResult Search(string searchString)
         {
-            bool successFlag = false; 
-            while (successFlag == false){ //Though using a Google API, so likely very reliable, this is a safety net.
-                try
-                {
-                    IStoredKey apiKey = new APIKey("AIzaSyC3evyffluu_gsQxMJq0ljpCrsFdfldLoM");
-                    String url = baseURL  + searchString + types + apiKey; return null;
-                    successFlag = true; //If we've made it to this point, break out of the loop, else retry.
-                }
-                catch (Exception e) {
-                    Debug.Write("Request unsuccessful. Printing e.Source:  \n" + e.Source);
-                }
-                return null;
-            }
-            }
+            if (apiKey != null)
+            {
+                bool successFlag = false;
+                while (successFlag == false) { //Though using a Google API, so likely very reliable, this is a safety net.
+                    try
+                    {
+                        String url = baseURL + searchString + types + apiKey.keyString;
+                        JSONGetter jsonGetter = new JSONGetter();
+                        IEnumerable<CityResult> results = jsonGetter.get(url).Result;
+                        successFlag = true; //If we've made it to this point, break out of the loop, else retry.
+                    }
+                    catch (Exception e) {
+                        Debug.Write("Request unsuccessful. Printing e.Source:  \n" + e.Source);
+                        Console.WriteLine(e.GetType().FullName);
+                        Console.WriteLine(e.Message);
+                    }
+
+                } return null;
+            } return null;
+        } 
     }
 }
+

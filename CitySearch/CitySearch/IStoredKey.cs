@@ -9,7 +9,7 @@ namespace CitySearch
     /**
      * Interface to be used for storing, and setting key values.
      */
-    public interface IStoredKey
+    public interface IStoredKey 
     {
         string keyString{get; set;}
 
