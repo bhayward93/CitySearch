@@ -25,7 +25,7 @@ namespace CitySearch
                 while (successFlag == false) { //Though using a Google API, so likely very reliable, this is a safety net.
                     try
                     {
-                        String url = baseURL + searchString + types + apiKey.keyString;
+                        String url = baseURL + searchString + types + "&key="+apiKey.keyString;
                         JSONGetter jsonGetter = new JSONGetter();
                         IEnumerable<CityResult> results = jsonGetter.get(url).Result;
                         successFlag = true; //If we've made it to this point, break out of the loop, else retry.

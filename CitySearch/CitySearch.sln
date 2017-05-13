@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CitySearch", "CitySearch\CitySearch.csproj", "{78731B13-43DB-4633-A157-F714A3978D85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CitySearchUserImplementation", "CitySearchUserImplementation\CitySearchUserImplementation.csproj", "{418B7CF5-BC91-4CE0-AFF4-0F7DB7A3E4B2}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestImplementation3", "TestImplementation3\TestImplementation3.csproj", "{3DF3602B-A1A4-4C5C-A60F-4CAE29FDFF78}"
 EndProject
 Global
@@ -37,22 +35,6 @@ Global
 		{78731B13-43DB-4633-A157-F714A3978D85}.Release|x64.Build.0 = Release|Any CPU
 		{78731B13-43DB-4633-A157-F714A3978D85}.Release|x86.ActiveCfg = Release|Any CPU
 		{78731B13-43DB-4633-A157-F714A3978D85}.Release|x86.Build.0 = Release|Any CPU
-		{418B7CF5-BC91-4CE0-AFF4-0F7DB7A3E4B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{418B7CF5-BC91-4CE0-AFF4-0F7DB7A3E4B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{418B7CF5-BC91-4CE0-AFF4-0F7DB7A3E4B2}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{418B7CF5-BC91-4CE0-AFF4-0F7DB7A3E4B2}.Debug|ARM.Build.0 = Debug|Any CPU
-		{418B7CF5-BC91-4CE0-AFF4-0F7DB7A3E4B2}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{418B7CF5-BC91-4CE0-AFF4-0F7DB7A3E4B2}.Debug|x64.Build.0 = Debug|Any CPU
-		{418B7CF5-BC91-4CE0-AFF4-0F7DB7A3E4B2}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{418B7CF5-BC91-4CE0-AFF4-0F7DB7A3E4B2}.Debug|x86.Build.0 = Debug|Any CPU
-		{418B7CF5-BC91-4CE0-AFF4-0F7DB7A3E4B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{418B7CF5-BC91-4CE0-AFF4-0F7DB7A3E4B2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{418B7CF5-BC91-4CE0-AFF4-0F7DB7A3E4B2}.Release|ARM.ActiveCfg = Release|Any CPU
-		{418B7CF5-BC91-4CE0-AFF4-0F7DB7A3E4B2}.Release|ARM.Build.0 = Release|Any CPU
-		{418B7CF5-BC91-4CE0-AFF4-0F7DB7A3E4B2}.Release|x64.ActiveCfg = Release|Any CPU
-		{418B7CF5-BC91-4CE0-AFF4-0F7DB7A3E4B2}.Release|x64.Build.0 = Release|Any CPU
-		{418B7CF5-BC91-4CE0-AFF4-0F7DB7A3E4B2}.Release|x86.ActiveCfg = Release|Any CPU
-		{418B7CF5-BC91-4CE0-AFF4-0F7DB7A3E4B2}.Release|x86.Build.0 = Release|Any CPU
 		{3DF3602B-A1A4-4C5C-A60F-4CAE29FDFF78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3DF3602B-A1A4-4C5C-A60F-4CAE29FDFF78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DF3602B-A1A4-4C5C-A60F-4CAE29FDFF78}.Debug|ARM.ActiveCfg = Debug|Any CPU

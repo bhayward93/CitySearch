@@ -58,6 +58,7 @@
     <Compile Include="IGet.cs" />
     <Compile Include="IStoredKey.cs" />
     <Compile Include="JSONGET.cs" />
+    <Compile Include="JSONObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

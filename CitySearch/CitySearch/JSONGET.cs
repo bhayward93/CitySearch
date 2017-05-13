@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -11,6 +13,8 @@ namespace CitySearch
 {
     class JSONGetter : IGet
     {
+        private string jsonResult;
+
         public Task<string> GetRequestAsync(string url) //https://maps.googleapis.com/maps/api/place/autocomplete/json?input=mid&types=(cities)&key=AIzaSyC3evyffluu_gsQxMJq0ljpCrsFdfldLoM
         {
             using (HttpClient client = new HttpClient())
@@ -22,12 +26,19 @@ namespace CitySearch
         {
             try
             {
-                string jsonResult = await GetRequestAsync(url);
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+                httpWebRequest.ContentType = "text/json";
+                httpWebRequest.Method = "GET";
+                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                using (var reader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    jsonResult = reader.ReadToEnd();
+                }
                 IEnumerable<CityResult> cities = JsonConvert.DeserializeObject<IEnumerable<CityResult>>(jsonResult);
                 IEnumerable<CityResult> cityResult = cities
                     .Select(p => new CityResult
                     {
-                        NextCities = p.NextCities,
+                        NextCities = p.NextCities, //Need to sort these out; this is just a temporary thing.
                         NextLetters = p.NextLetters
                     });
                 return cities;
