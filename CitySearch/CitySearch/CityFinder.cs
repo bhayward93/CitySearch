@@ -21,14 +21,16 @@ namespace CitySearch
         {
             if (apiKey != null)
             {
+                CityResult deserializedJSON = new CityResult();
                 bool successFlag = false;
                 while (successFlag == false) { //Though using a Google API, so likely very reliable, this is a safety net.
                     try
                     {
                         String url = baseURL + searchString + types + "&key="+apiKey.keyString;
-                        JSONGetter jsonGetter = new JSONGetter();
-                        IEnumerable<CityResult> results = jsonGetter.get(url).Result;
+                        JSONHandler jsonHandler = new JSONHandler();
+                        deserializedJSON = jsonHandler.GetDeserializeParse(searchString, url);
                         successFlag = true; //If we've made it to this point, break out of the loop, else retry.
+                        return deserializedJSON;
                     }
                     catch (Exception e) {
                         Debug.Write("Request unsuccessful. Printing e.Source:  \n" + e.Source);
@@ -36,8 +38,8 @@ namespace CitySearch
                         Console.WriteLine(e.Message);
                     }
 
-                } return null;
-            } return null;
+                } return deserializedJSON;
+            } return null; //No API key.
         } 
     }
 }

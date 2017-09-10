@@ -42,6 +42,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,15 +51,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="APIKey.cs" />
+    <Compile Include="Conf\APIKey.cs" />
     <Compile Include="CityFinder.cs" />
-    <Compile Include="CityResult.cs" />
-    <Compile Include="ICityFinder.cs" />
-    <Compile Include="ICityResult.cs" />
-    <Compile Include="IGet.cs" />
-    <Compile Include="IStoredKey.cs" />
-    <Compile Include="JSONGET.cs" />
-    <Compile Include="JSONObject.cs" />
+    <Compile Include="Data Structures\CityResult.cs" />
+    <Compile Include="Data Structures\Interfaces\ICityFinder.cs" />
+    <Compile Include="Data Structures\Interfaces\ICityResult.cs" />
+    <Compile Include="Data Structures\POJOs\Prediction.cs" />
+    <Compile Include="Data Structures\POJOs\PredictionMatchedSubstring.cs" />
+    <Compile Include="Data Structures\POJOs\Predictions.cs" />
+    <Compile Include="Data Structures\POJOs\PredictionTerm.cs" />
+    <Compile Include="JSON\Interfaces\IJSONHandler.cs" />
+    <Compile Include="Conf\Interfaces\IStoredKey.cs" />
+    <Compile Include="JSON\JSONHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,7 +70,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Conf\" />
+    <Content Include="DocumentationFormat.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
