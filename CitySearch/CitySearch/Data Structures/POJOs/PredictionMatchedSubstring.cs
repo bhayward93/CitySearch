@@ -1,12 +1,11 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace CitySearch
 {
-	/// <summary>
-	/// The Autocomplete Prediction Substring
-	/// </summary>
-	public class PredictionMatchedSubstring
+    /// <summary>
+    /// PredictionMatchedSubstring POJO.
+    /// </summary>
+    public class PredictionMatchedSubstring
 	{
 		[JsonProperty("length")]
 		public int Length { get; set; }

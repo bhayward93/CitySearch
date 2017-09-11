@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace CitySearch
+﻿namespace CitySearch
 {
+    /// <summary>
+    /// The Interface specifying the layout of a JSONHandler
+    /// </summary>
     internal interface IJSONHandler
     {
         string GetJSON(string url);

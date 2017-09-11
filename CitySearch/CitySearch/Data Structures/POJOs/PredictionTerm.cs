@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 namespace CitySearch
 {
 	/// <summary>
-	/// The Autocomplete Prediction Term
+	/// POJO representing the PredictionTerm field of the JSON.
 	/// </summary>
 	public class PredictionTerm
 	{

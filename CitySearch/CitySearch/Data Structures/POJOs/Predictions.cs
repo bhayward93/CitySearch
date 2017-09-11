@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace CitySearch
 {
 	/// <summary>
-	/// The Autocomplete Prediction Collection
+	/// Predictions POJO, which holds an IEnumerable of multiple Prediction objects.
 	/// </summary>
 	public class Predictions
 	{

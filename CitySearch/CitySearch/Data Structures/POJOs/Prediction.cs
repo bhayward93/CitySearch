@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace CitySearch
 {
 	/// <summary>
-	/// The Autocomplete Prediction
+	/// Prediction POJO.
 	/// </summary>
 	public class Prediction
 	{

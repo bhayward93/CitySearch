@@ -1,45 +1,50 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CitySearch
-{
+{   
+    /// <summary>
+    /// The core of CitySearch library, making the top level calls. 
+    /// Enforces the instatiation of an APIKey object.
+    /// </summary>
     public class CityFinder : ICityFinder
     {
-        private APIKey apiKey;
-        private const string baseURL = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=";
+        private APIKey apiKey; 
+        private const string baseURL = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input="; 
         private string types = "&types=(cities)";
 
+        /// <summary>
+        /// Constructor for a CityFinder object.
+        /// </summary>
+        /// <param name="key">An APIKey object, holding the value of an APIKey for Google Cities AutoComplete</param>
         public CityFinder(APIKey key)
         {
-            this.apiKey = key;
+            this.apiKey = key; 
         }
+
+        /// <summary>
+        /// Queries the API, given a search-string, returning a CityResult object.  
+        /// </summary>
+        /// <param name="searchString">The partially completed string to be search</param>
+        /// <returns>CityResult object, containing the next letters, and next city names as lists of strings</returns>
         public ICityResult Search(string searchString)
         {
-            if (apiKey != null)
-            {
                 CityResult deserializedJSON = new CityResult();
-                bool successFlag = false;
-                while (successFlag == false) { //Though using a Google API, so likely very reliable, this is a safety net.
+                while (1 == 1) { 
                     try
                     {
-                        String url = baseURL + searchString + types + "&key="+apiKey.keyString;
+                        string url = baseURL + searchString + types + "&key="+apiKey.keyString;
                         JSONHandler jsonHandler = new JSONHandler();
                         deserializedJSON = jsonHandler.GetDeserializeParse(searchString, url);
-                        successFlag = true; //If we've made it to this point, break out of the loop, else retry.
                         return deserializedJSON;
                     }
                     catch (Exception e) {
-                        Debug.Write("Request unsuccessful. Printing e.Source:  \n" + e.Source);
-                        Console.WriteLine(e.GetType().FullName);
-                        Console.WriteLine(e.Message);
+                        Debug.Write("Request unsuccessful. Retrying & Printing e.Source:  \n" + e.Source);
+                        Console.WriteLine(e.GetType().FullName, "\n", e.Message);
                     }
-
-                } return deserializedJSON;
-            } return null; //No API key.
+                } 
+            return null; 
         } 
     }
 }
